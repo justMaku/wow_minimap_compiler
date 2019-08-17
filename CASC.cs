@@ -114,8 +114,6 @@ namespace wow_minimap_compiler
                 return false;
             }
 
-            Console.WriteLine(path);
-
             var fileStream = System.IO.File.Create(path);
 
             stream.CopyTo(fileStream);

@@ -8,11 +8,11 @@
   <ItemGroup>
     <ProjectReference Include="..\DBCD\DBCD\DBCD.csproj" />
     <ProjectReference Include="..\SereniaBLPLib\SereniaBLPLib\SereniaBLPLib.csproj" />
+    <ProjectReference Include="..\progress-bar\Goblinfactory.ProgressBar\Goblinfactory.ProgressBar.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="NetVips" Version="1.0.5" />
-    <PackageReference Include="Goblinfactory.Konsole" Version="3.3.0" />
   </ItemGroup>
 
 </Project>
