@@ -38,6 +38,7 @@ namespace wow_minimap_compiler
                 }
                 catch (Exception e)
                 {
+                    Console.WriteLine($"Unable to download file: {baseURL}{query}");
                     throw new FileNotFoundException($"Unable to download file {fileDataID} for build {buildConfig}\nReason: {e}");
                 }
             }
@@ -80,7 +81,7 @@ namespace wow_minimap_compiler
 
         public Stream Cached(string buildConfig, string fileName)
         {
-            var path = $"{cacheDirectory}/{buildConfig}/{fileName}";
+            var path = $"{cacheDirectory}{Path.DirectorySeparatorChar}{buildConfig}{Path.DirectorySeparatorChar}{fileName}";
 
             if (System.IO.File.Exists(path) == false)
             {
@@ -102,12 +103,12 @@ namespace wow_minimap_compiler
                 Directory.CreateDirectory(cacheDirectory);
             }
 
-            if (Directory.Exists($"{cacheDirectory}/{buildConfig}") == false)
+            if (Directory.Exists($"{cacheDirectory}{Path.DirectorySeparatorChar}{buildConfig}") == false)
             {
-                Directory.CreateDirectory($"{cacheDirectory}/{buildConfig}");
+                Directory.CreateDirectory($"{cacheDirectory}{Path.DirectorySeparatorChar}{buildConfig}");
             }
 
-            var path = $"{cacheDirectory}/{buildConfig}/{fileName}";
+            var path = $"{cacheDirectory}{Path.DirectorySeparatorChar}{buildConfig}{Path.DirectorySeparatorChar}{fileName}";
 
             if (System.IO.File.Exists(path))
             {
